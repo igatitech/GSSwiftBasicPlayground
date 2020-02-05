@@ -7,8 +7,11 @@ import UIKit
 //Print Hello World!!
 print("Hello World!!")
 
+
+
 //MARK:- Constant & Variable
-//Use let to make a constant
+
+//Use let to make a constant. Once it is assigned, the value can't be changed.
 let myConstant = 10
 print(myConstant)
 
@@ -17,26 +20,26 @@ let myInt : Int
 myInt = 20
 print(myInt)
 
-//Providing a value when you create a constant or variable lets the compiler infer its type. In the example below, the compiler infers that strPlayground is a String because its initial value is a String.
+// When you provide a value while creating constant or variable lets the compiler know it's type. In the example below, the compiler detects that strPlayground is a String type variable because it's initial value is a String.
 var strPlayground = "Hello, playground"
 print(strPlayground)
 strPlayground = "Variable can be changed as, Hello World!"
 print(strPlayground)
 
-//If the initial value does not provide enough information(or if there is no initial value), specify the type by writing it after the variable, separated by a colon
+//If the initial value does not provide enough information such as in below example, myValue is given the value 40. Compiler will detect this value as Int. But if you want myValue to be a Double value then you need to explicitly define it. Specify the type by writing it after the variable, separated by a colon.
 var myValue : Double = 40
 print(myValue)
 myValue = 30.45
 print(myValue)
 
-//Values are never implicitly converted to another type. If you need to convert a value to a different type, explicitly make an instance of the desired type.
+//Values are never implicitly converted to another type. You need to convert it explicitly.
 let str = "My weight is "
 let weight = 50
 //If we remove String conversion from the below line, we will get error = "Binary operator '+' cannot be applied to operands of type 'String' and 'Int'"
 let strWeight = str + String(weight)
 print(strWeight)
 
-//There’s an even simpler way to include values in strings: Write the value in parentheses, and write a backslash (\) before the parentheses.
+//There’s an another way of writing strings: Write the value in parentheses, and write a backslash (\) before the parentheses.
 let shoes = 5
 let sandals = 10
 let totalShoes = "I have \(shoes) shoes."
@@ -60,9 +63,9 @@ print("Print multiline String : \(multiLineStr)")
 
 //Create Array using brackets([])
 var arrFruits = ["apple", "orange"]
-//Access their elements using index
+//Access elements of array using index
 print("Fruit at index 0 : \(arrFruits[0])")
-//Modify value at specific index
+//Modify a particular value by mentioning the specific index
 arrFruits[1] = "Banana"
 print("Print array of fruits : \(arrFruits)")
 
@@ -78,7 +81,7 @@ var dictUsers = [
     "Gati" : "iOS Developer",
     "Shrikant" : "CRM Developer"
 ]
-//Access their elements using key
+//Access elements of dictionary using key
 print("Print value of Gati key from dictUser : \(dictUsers["Gati"] ?? "")")
 //Add new key-value in dictionary
 dictUsers["Ashwini"] = ".Net Developer"
@@ -90,11 +93,12 @@ let dictEmpty = [String : Any]()
 
 
 //MARK:- Optional Value
-//An optional value either contains a value or contains nil to indicate that a value is missing. Write a question mark (?) after the type of a value to mark the value as optional.
+
+//Declare optional value using question mark(?) at the end of the type of a value to mark the value as optional. Question mark in the declaration indicated that an optional value either contains a value or contains nil(value is missing).
 var strOptional : String? = "This is Optional String!"
 print(strOptional == nil) //It will print false, indicates that strOptional is not equals to nil.
 
-//You can use if and let together to work with values that might be missing. These values are represented as optionals. If the optional value is nil, the conditional is false and the code in braces is skipped. Otherwise, the optional value is unwrapped and assigned to the constant after let, which makes the unwrapped value available inside the block of code.
+//You can use if let statement while using an optional value. If let statement unwrapped the optional value and assign it to the constant after let and if the value is nil, the if condition is false and the code in the if braces will be skipped. It reduces unwanted crashes in the application which occurs due to nil value of any variable.
 if let strTmp = strOptional {
     print("Hello, \(strTmp)")
 }
@@ -107,9 +111,8 @@ let strGreeting = "Hello \(strFirstName ?? strFullName)"
 
 
 //MARK:- Switches
-//Switches support any kind of data and a wide variety of comparison operations—they aren’t limited to integers and tests for equality
 
-
+//Switches are no more limited to integeers and tests for equality only. Now they support any kind of data and a wide variety of comarision operations.
 let strPersonName = "Shrikant Sharma"
 switch strPersonName {
 case "Gati":
@@ -122,13 +125,13 @@ default:
     print("This is the default case, If any of the above case will not be executed, then this statement will be print")
 }
 
-//After executing the code inside the switch case that matched, the program exits from the switch statement. Execution doesn’t continue to the next case, so there is no need to explicitly break out of the switch at the end of each case’s code.
+//Now there is no need to mention break statement explicitly. Once the switch case executes by maching condition, the execution exits and it will not go further to check other test cases.
 
 
 
 //MARK:- Control Flow
 
-//for-in loop to iterate over items in an Array
+//for-in loop is used to iterate through items in an Array
 let arrMarks = [50, 45, 70, 90, 100]
 var totalMarks = 0
 for mark in arrMarks {
@@ -136,13 +139,14 @@ for mark in arrMarks {
 }
 print("Print total Marks : \(totalMarks)")
 
-//for-in loop to iterate over items in a Dictionary
+//for-in loop is used to iterate through items in a Dictionary
 let dictValues = [
     "firstSet" : [5,23,7,21,12,9],
     "secondSet" : [100,200,321,226,525,156]
 ]
 var largestNum = 0
 for (key, values) in dictValues {
+    print(key)
     for number in values {
         if number > largestNum {
             largestNum = number
@@ -151,7 +155,7 @@ for (key, values) in dictValues {
 }
 print("Largets Number is : \(largestNum)")
 
-//You can keep an index in a loop by using ..< to make a range of indexes
+//You can define range of indexes in a loop
 var total = 0
 for i in 0..<10 {
     total = total + i
@@ -165,14 +169,14 @@ for i in 0...10 {
 }
 print("Print grandTotal : \(grandTotal)")
 
-//Use while to repeat a block of code until a condition changes.
+//Use while to repeat a block of code until a condition is true.
 var n = 2
 while n < 10 {
     n = n*2
     print("Print value of n : \(n)")
 }
 
-//The condition of a loop can be at the end instead, ensuring that the loop is run at least once.
+//repeat while is similar to do while loop. Here, condition of a loop will be at the end instead at the begining to make sure that the loop will be executed at least once.
 var m = 2
 repeat {
     m *= 2
@@ -248,5 +252,212 @@ print(mappedValues)
 //Sorted
 let sortedArray = numValues.sorted {$0 > $1}
 print(sortedArray)
+
+
+
+//MARK:- Objects & Classes
+
+//Use class followed by the class's name to crate a class.
+class Students {
+    var totalStudent = 3000
+    func describeAllStudents() -> String {
+        return "Total number of students in the class is : \(totalStudent)"
+    }
+}
+
+//Create an instance of a class by putting parentheses after the class name. Use dot syntax to access the properties and methods of the instance.
+var student = Students()
+student.totalStudent = 3200
+var strDescription = student.describeAllStudents()
+print("Print Student Class Description : \(strDescription)")
+
+//Add an initializer to set up the class when an instance is created. Use init to create one.
+class Vehicle {
+    var numOfDoors = 4
+    var name : String
+    
+    init(name : String) {
+        self.name = name
+    }
+    func describeVehicle() -> String {
+        return "The vehicle has total \(numOfDoors) doors"
+    }
+}
+let veh = Vehicle(name: "Gati")
+let descVeh = veh.describeVehicle()
+print("Vehicle Description : \(descVeh)")
+
+//Inheritance : Subclass inherits it's superclass by mentioning class name separated by colon.
+class Bike : Vehicle {
+    var seatLength : Double
+    init(seatLength : Double, name : String) {
+        self.seatLength = seatLength
+        super.init(name: name)
+    }
+    
+    func square() -> Double{
+        return seatLength * seatLength
+    }
+    
+    override func describeVehicle() -> String {
+        return "A bike has \(seatLength) seat length"
+    }
+}
+let check = Bike(seatLength: 11.0, name: "Shrikant")
+let valueSquare = check.square()
+print("Value of square is : \(valueSquare)")
+let strBike = check.describeVehicle()
+print("Bike description : \(strBike)")
+
+//Properties can have getter and setter
+class Scooty : Vehicle {
+    var seatLength : Double = 0.0
+    init(seatLength : Double, name : String) {
+        self.seatLength = seatLength
+        super.init(name: "Shrikant")
+    }
+    
+    var totalLength : Double {
+        get {
+            return seatLength * 3
+        } set {
+            seatLength = newValue / 3.0
+        }
+    }
+}
+var objScooty = Scooty(seatLength: 3.3, name: "Gati")
+print("Get value of total length : \(objScooty.totalLength)")
+objScooty.totalLength = 9.0
+print("Set the value of seat length : \(objScooty.seatLength)")
+
+
+
+
+//MARK:- Enumerations and Structures
+
+//User enum to create enumerations, enumerations can have methods associated with them
+//By default, Swift assigns the raw values starting at zero and incrementing by one each time, but you can change this behavior by explicitly specifying values. In the example below, Monday is explicitly given a raw value of 1, and the rest of the raw values are assigned in order.
+enum Days: Int {
+    case Monday = 1
+    case Tuesday, Wednesday, Thursday
+    case Friday, Saturday, Sunday
+    
+    func simpleDescription() -> String {
+        switch self {
+        case .Monday:
+            return "Monday"
+        case .Tuesday:
+            return "Tuesday"
+        case .Wednesday:
+            return "Wednesday"
+        case .Thursday:
+            return "Thursday"
+        case .Friday:
+            return "Friday"
+        case .Saturday:
+            return "Saturday"
+        default:
+            return String(self.rawValue)
+        }
+    }
+}
+let mon = Days.Monday
+print("mon : \(mon)")
+let monRawValue = mon.rawValue
+print("Row value of mon : \(monRawValue)")
+
+//Use struct to create structure. Structures support many of the same behaviors as classes, including methods and initializers.
+//One of the most important differences between structures and classes is that structures are value type and always copied when they are passed around in your code, but classes are reference type.
+struct Week {
+    var day : Days
+    func weekDayDescription() -> String {
+        return "The day is \(day.simpleDescription())"
+    }
+}
+
+let week = Week(day: .Thursday)
+print("Week day description : \(week.weekDayDescription())")
+
+
+
+//MARK:- Error Handling
+
+//Use throw to throw an error and throws to mark a function that can throw an error.
+enum errorType : Error {
+    case notFound
+    case somethingWentWrong
+}
+
+func sendMessage(name : String, message : String) throws -> String {
+    if name == "Not Found" {
+        throw errorType.notFound
+    }
+    return "Shrikant Hello"
+}
+
+//There are several ways to handle errors.
+//One way is to use do-catch.
+//Inside do block, you mark the code that can throw an error by writing try in front of it following by a catch block.
+do {
+    let printResponse = try sendMessage(name: "Shrikant Sharma", message: "Hiii")
+    print("Print Response : \(printResponse)")
+} catch {
+    print(error)
+}
+
+//You can provide multiple catch blocks that handle specific errors.
+do {
+    let strResponse = try sendMessage(name: "Gati Shah", message:
+    "Helloooo")
+    print("strResponse : \(strResponse)")
+} catch errorType.notFound {
+    print("Not found error")
+} catch errorType.somethingWentWrong {
+    print("Something went wrong!")
+} catch {
+    print(error)
+}
+
+//Another way to handle error is to use try? to convert the result to an optional. If the function throws an error, the specific error is discarded and result is nil
+let printSuccess = try? sendMessage(name: "Arav", message: "Let's go")
+let printFailure = try? sendMessage(name: "Not Found", message: "Failure")
+print("Success :\(printSuccess ?? "")")
+print("Failure :\(printFailure ?? "")")
+
+
+
+//MARK:- Use of defer
+
+//Use defer to write a block of code that is executed after all other code in the function, just before the function returns.
+var isStudentPresent = false
+let students = ["Arav", "Rahul", "Pihu", "Anaya"]
+
+func studentContains(student : String) -> Bool {
+    isStudentPresent = true
+    defer {
+        isStudentPresent = false
+    }
+    print("Inside func isStudentPresent : \(isStudentPresent)")
+    let result = students.contains(student)
+    return result
+}
+print("Is student contains : \(studentContains(student: "Pihu"))")
+print("Is student present : \(isStudentPresent)")
+
+
+
+//MARK:- Generics
+
+//Write a name inside angle brackets to make a generic function or type.
+func makeArray<Item>(repeating item : Item, numberOfTimes : Int) -> [Item] {
+    var result = [Item]()
+    for _ in 0..<numberOfTimes {
+        result.append(item)
+    }
+    return result
+}
+let arrMake = makeArray(repeating: "Hello", numberOfTimes: 5)
+print("Generic Array Data : \(arrMake)")
+
 
 
