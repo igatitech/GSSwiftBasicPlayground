@@ -34,7 +34,7 @@ Swift is the recommended programming language for writing iOS apps. The Swift la
 
 ## Key Features:
 **1. Constants & Variables**
-````
+```swift
 //Use let to make a constant. Once it is assigned, the value can't be changed.
 let myConstant = 10
 print(myConstant)
@@ -69,20 +69,20 @@ let sandals = 10
 let totalShoes = "I have \(shoes) shoes."
 let footwear = "I have total \(shoes + sandals) footwear"
 print(footwear)
-````
+```
 
 **2. Multiline String**
-````
+```swift
 //Use three double quotation marks (""") for strings that take up multiple lines.
 let multiLineStr = """
 I have \(shoes) shoes.
 I have total \(shoes + sandals) footwear
 """
 print("Print multiline String : \(multiLineStr)")
-````
+```
 
 **3. Array & Dictionary**
-````
+```swift
 //Create Array using brackets([])
 var arrFruits = ["apple", "orange"]
 //Access elements of array using index
@@ -111,10 +111,10 @@ print("Print dictUser : \(dictUsers)")
 
 //Create Empty Dictionary
 let dictEmpty = [String : Any]()
-````
+```
 
 **4. Optional Value**
-````
+```swift
 //Declare optional value using question mark(?) at the end of the type of a value to mark the value as optional. Question mark in the declaration indicated that an optional value either contains a value or contains nil(value is missing).
 var strOptional : String? = "This is Optional String!"
 print(strOptional == nil) //It will print false, indicates that strOptional is not equals to nil.
@@ -128,10 +128,10 @@ if let strTmp = strOptional {
 let strFirstName : String? = nil
 let strFullName = "Shrikant Sharma"
 let strGreeting = "Hello \(strFirstName ?? strFullName)"
-````
+```
 
 **5. Switches**
-````
+```swift
 //Switches are no more limited to integeers and tests for equality only. Now they support any kind of data and a wide variety of comarision operations.
 let strPersonName = "Shrikant Sharma"
 switch strPersonName {
@@ -146,10 +146,10 @@ default:
 }
 
 //Now there is no need to mention break statement explicitly. Once the switch case executes by maching condition, the execution exits and it will not go further to check other test cases.
-````
+```
 
 **6. Control Flow**
-````
+```swift
 //for-in loop is used to iterate through items in an Array
 let arrMarks = [50, 45, 70, 90, 100]
 var totalMarks = 0
@@ -201,10 +201,10 @@ repeat {
     m *= 2
     print("Print value of m : \(m)")
 } while m < 20
-````
+```
 
 **7. Functionas and Closures**
-````
+```swift
 //Use func to declare a function. Call a function by following its name with a list of arguments in parentheses.
 func greetPerson(message : String, name : String) -> String {
     return "\(message) \(name)"
@@ -229,10 +229,10 @@ func returnValue() -> Int {
     return y
 }
 print("Print value of y : \(returnValue())")
-````
+```
 
 **8. Tuples**
-````
+```swift
 //Use Tuples to make a compound value.
 //Here we are using tuple to return multiple values from function
 func calculateMinMaxSum(arrNum : [Int]) -> (min : Int, max : Int, sum : Int) {
@@ -254,10 +254,10 @@ print("Print sum from tuple : \(tupleValue.sum)")
 print("Print max value from tuple : \(tupleValue.1)") //We can access tuple value using index number
 print("Print min value from tuple : \(tupleValue.min)")
 print("Print tupleValue : \(tupleValue)")
-````
+```
 
 **9. Higher Order Functions**
-````
+```swift
 //Map
 var numValues = [1,5,3,8,4,7,9]
 //map is used to modify each value in the array
@@ -269,10 +269,10 @@ print(mappedValues)
 //Sorted
 let sortedArray = numValues.sorted {$0 > $1}
 print(sortedArray)
-````
+```
 
 **10. Objects & Classes**
-````
+```swift
 //Use class followed by the class's name to crate a class.
 class Students {
     var totalStudent = 3000
@@ -345,10 +345,10 @@ var objScooty = Scooty(seatLength: 3.3, name: "Gati")
 print("Get value of total length : \(objScooty.totalLength)")
 objScooty.totalLength = 9.0
 print("Set the value of seat length : \(objScooty.seatLength)")
-````
+```
 
 **11. Enumerations & Structures**
-````
+```swift
 //User enum to create enumerations, enumerations can have methods associated with them
 //By default, Swift assigns the raw values starting at zero and incrementing by one each time, but you can change this behavior by explicitly specifying values. In the example below, Monday is explicitly given a raw value of 1, and the rest of the raw values are assigned in order.
 enum Days: Int {
@@ -391,10 +391,10 @@ struct Week {
 
 let week = Week(day: .Thursday)
 print("Week day description : \(week.weekDayDescription())")
-````
+```
 
 **12. Error Handling**
-````
+```swift
 //Use throw to throw an error and throws to mark a function that can throw an error.
 enum errorType : Error {
     case notFound
@@ -436,10 +436,10 @@ let printSuccess = try? sendMessage(name: "Arav", message: "Let's go")
 let printFailure = try? sendMessage(name: "Not Found", message: "Failure")
 print("Success :\(printSuccess ?? "")")
 print("Failure :\(printFailure ?? "")")
-````
+```
 
 **13. Use of Defer**
-````
+```swift
 //Use defer to write a block of code that is executed after all other code in the function, just before the function returns.
 var isStudentPresent = false
 let students = ["Arav", "Rahul", "Pihu", "Anaya"]
@@ -455,10 +455,10 @@ func studentContains(student : String) -> Bool {
 }
 print("Is student contains : \(studentContains(student: "Pihu"))")
 print("Is student present : \(isStudentPresent)")
-````
+```
 
 **14. Generics**
-````
+```swift
 //Write a name inside angle brackets to make a generic function or type.
 func makeArray<Item>(repeating item : Item, numberOfTimes : Int) -> [Item] {
     var result = [Item]()
@@ -469,7 +469,7 @@ func makeArray<Item>(repeating item : Item, numberOfTimes : Int) -> [Item] {
 }
 let arrMake = makeArray(repeating: "Hello", numberOfTimes: 5)
 print("Generic Array Data : \(arrMake)")
-````
+```
 
 ## How to run the project?
 - Download or Clone the project
