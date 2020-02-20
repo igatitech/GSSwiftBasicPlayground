@@ -212,6 +212,44 @@ func returnValue() -> Int {
 }
 print("Print value of y : \(returnValue())")
 
+//Pass function to another function
+func addition(num1: Double, num2: Double) -> Double {
+    return num1 + num2
+}
+
+func multiplication(num1: Double, num2: Double) -> Double {
+    return num1 * num2
+}
+
+func doMathOperation(operation : (_ x:Double, _ y:Double) -> Double, num1 : Double, num2: Double) -> Double {
+    return operation(num1, num2)
+}
+
+print("Math Operation Addition: \(doMathOperation(operation: addition(num1:num2:), num1: 10, num2: 10))")
+print("Math Operation Multiply: \(doMathOperation(operation: multiplication(num1:num2:), num1: 10, num2: 10))")
+
+//Return function from another function
+func doArithmeticOperation(isMultiply : Bool) -> (Double, Double) -> Double {
+    func addition(num1: Double, num2: Double) -> Double {
+        return num1 + num2
+    }
+    func multiplication(num1: Double, num2: Double) -> Double {
+        return num1 * num2
+    }
+    return isMultiply ? multiplication : addition
+}
+
+let operation1 = doArithmeticOperation(isMultiply: true)
+let operation2 = doArithmeticOperation(isMultiply: false)
+print("Multiplication : \(operation1(15,15))")
+print("Addition : \(operation2(10,10))")
+
+//Closure example
+let closure : (Int, Int) -> Int = { (num1, num2) in
+    return num1 + num2
+}
+let resultClosure = closure(10, 5)
+print("Closure Result : \(resultClosure)")
 
 //MARK:- Tuples
 
@@ -240,6 +278,7 @@ print("Print tupleValue : \(tupleValue)")
 
 
 //MARK:- Higher Order Functions
+//It can be used on collection types such as Array, Dictionary.
 
 //Map
 var numValues = [1,5,3,8,4,7,9]

@@ -229,6 +229,38 @@ func returnValue() -> Int {
     return y
 }
 print("Print value of y : \(returnValue())")
+
+//Pass function to another function
+func addition(num1: Double, num2: Double) -> Double {
+    return num1 + num2
+}
+
+func multiplication(num1: Double, num2: Double) -> Double {
+    return num1 * num2
+}
+
+func doMathOperation(operation : (_ x:Double, _ y:Double) -> Double, num1 : Double, num2: Double) -> Double {
+    return operation(num1, num2)
+}
+
+print("Math Operation Addition: \(doMathOperation(operation: addition(num1:num2:), num1: 10, num2: 10))")
+print("Math Operation Multiply: \(doMathOperation(operation: multiplication(num1:num2:), num1: 10, num2: 10))")
+
+//Return function from another function
+func doArithmeticOperation(isMultiply : Bool) -> (Double, Double) -> Double {
+    func addition(num1: Double, num2: Double) -> Double {
+        return num1 + num2
+    }
+    func multiplication(num1: Double, num2: Double) -> Double {
+        return num1 * num2
+    }
+    return isMultiply ? multiplication : addition
+}
+
+let operation1 = doArithmeticOperation(isMultiply: true)
+let operation2 = doArithmeticOperation(isMultiply: false)
+print("Multiplication : \(operation1(15,15))")
+print("Addition : \(operation2(10,10))")
 ```
 
 **8. Tuples**
@@ -483,8 +515,11 @@ print("Generic Array Data : \(arrMake)")
 
 **Happy Coding! Cheers!!** 🥂 
 
+## Author
+If you wish to contact me, email at: [gati1993@gmail.com](gati1993@gmail.com)
+
 ## License
-Copyright 2018 Gati Shah
+Copyright 2020 Gati Shah
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
